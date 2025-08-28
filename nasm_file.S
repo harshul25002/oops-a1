@@ -1,9 +1,3 @@
-; NASM x86_64 Linux program using only syscalls (no C/C++ libs)
-; - Prompts for name and age
-; - Validates age is numeric
-; - Asks confirmation y/n
-; - Prints whether confirmed
-
 BITS 64
 
 %define SYS_READ 0
@@ -104,8 +98,6 @@ _start:
     mov rdi, 1
     jmp exit
 
-; Reads a line into [rsi] up to rdx-1 bytes, strips trailing \n, NUL-terminates
-; Args: rdi=fd, rsi=buf, rdx=maxlen
 read_line:
     push rbx
     mov rbx, rsi         ; save buf
@@ -153,7 +145,6 @@ print_cstr:
     pop rdi
     ret
 
-; Returns rax=1 if C-string at rsi is numeric (all digits), else 0
 is_numeric:
     xor rax, rax
     xor rcx, rcx
