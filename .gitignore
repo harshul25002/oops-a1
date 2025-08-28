@@ -1,0 +1,15 @@
+# Binaries and objects
+*.o
+*.out
+*.exe
+/a.out
+
+# Tooling
+*.swp
+*.swo
+.DS_Store
+
+# Build dirs
+/build/
+/bin/
+/obj/
